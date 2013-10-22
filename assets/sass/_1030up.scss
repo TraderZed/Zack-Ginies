@@ -1,15 +1,27 @@
-/******************************************************************
-Site Name: This End Up
-Author: Zack Ginies
+/********************************************************************
 
-Stylesheet: Desktop Stylsheet
+	ZACK GINIES - 1030.scss
+	-----------------------------
+	author: zack ginies - zack@zackginies.com
+	date: oct 21, 2013 
+	
+	Desktop.
+	Using Bones as a loose guide.
+		
+	INDEX
+	-----------------------------------------
+	- General Styles
+	- Links
+	- Headings
+	- Header
+		- Navigation
+	- Footer
 
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop. 
 
-INDEX
------------------------------------------
-- 
+*******************************************************************/
 
+/* GENERAL STYLES -------------------------------------------------------*/
 
-******************************************************************/
+body {
+	background: blue;
+}

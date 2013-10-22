@@ -18,6 +18,9 @@
 			<link rel="shortcut icon" href="assets/images/favicon.ico">
 		<![endif]-->
 		
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/scripts.js"></script>	
+		
 		<link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css" />
 
 		
@@ -25,7 +28,15 @@
 	
 	<body>
 		<header>
-			<h1>Zack Ginies - Front-end Developer</h1>
+			<div class="contact outer">
+				<div class="container">
+					<div class="inner">
+						<p>Zack Ginies<br/><a href="#" title="Email">zack@zackginies.com</a><br/>647 588 9225</p>
+					</div><!-- End INNER -->
+				</div><!-- End CONTAINER -->
+			</div><!-- End CONTACT -->
+		
+			<h1>Zack Ginies is a front-end developer</h1>
 			
 			<nav>
 				<ul>
@@ -36,29 +47,40 @@
 			</nav>
 		</header>
 		
-		<section id="likes_wrapper">
-			<div class="like">
-				<h2>Zack likes <span>biking</span><h2>
-			</div><!-- End LIKE -->
+		<div id="main_content">
+			<section id="likes_wrapper">
+				<div class="like outer">
+					<div class="container">
+						<div class="inner">
+							<h2>Zack likes <span>biking</span></h2>
+						</div><!-- End INNER -->
+					</div><!-- End CONTAINER -->
+				</div><!-- End LIKE -->
+				
+				<div class="like">
+					<h2>Zack likes <span>bingo</span></h2>
+				</div><!-- End LIKE -->
+				
+				<div class="like">
+					<h2>And he really likes <span>Bad Girls Club</span></h2>
+				</div><!-- End LIKE -->
+				
+				<a href="javascript: void(0);" class="btn_prev">Previous</a>
+				<a href="javascript: void(0);" class="btn_next">Next</a>
+				
+				<span class="border_bottom"></span>
+			</section><!-- End LIKES WRAPPER -->
 			
-			<div class="like">
-				<h2>Zack likes <span>bingo</span><h2>
-			</div><!-- End LIKE -->
-			
-			<div class="like">
-				<h2>And he really likes <span>Bad Girls Club</span><h2>
-			</div><!-- End LIKE -->
-		</section><!-- End LIKES WRAPPER -->
-		
-		<section id="paid">
-			<div class="">
-				<h2>He also likes <span>getting paid</span></h2>
-			</div>
-			
-			<div class="work">
-			
-			</div><!-- End WORK -->
-		</section><!-- End PAID -->
+			<section id="paid">
+				<div class="">
+					<h2>He also likes <span>getting paid</span></h2>
+				</div>
+				
+				<div class="work">
+				
+				</div><!-- End WORK -->
+			</section><!-- End PAID -->
+		</div><!-- End MAIN CONTENT -->
 	</body>
 	
 </html>

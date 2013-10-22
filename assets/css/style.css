@@ -424,30 +424,23 @@ table {
   box-sizing: border-box; }
 
 /* COLORS ---------------------------------------------------------*/
-/* Typography ---------------------------------------------------------*/
+/* TYPOGRAPHY ---------------------------------------------------------*/
 @font-face {
-  font-family: 'BebasNeue';
-  src: url("../fonts/BebasNeue-webfont.eot");
-  src: url("../fonts/BebasNeue-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/BebasNeue-webfont.woff") format("woff"), url("../fonts/BebasNeue-webfont.ttf") format("truetype"), url("../fonts/BebasNeue-webfont.svg#font-name") format("svg");
+  font-family: 'Didot Italic';
+  src: url("../fonts/didotltstd-italic-webfont.eot");
+  src: url("../fonts/didotltstd-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/didotltstd-italic-webfont.woff") format("woff"), url("../fonts/didotltstd-italic-webfont.ttf") format("truetype"), url("../fonts/didotltstd-italic-webfont.svg#font-name") format("svg");
   font-weight: normal;
   font-style: normal; }
 
-@font-face {
-  font-family: 'cartonslab';
-  src: url("../fonts/carton-slab-webfont.eot");
-  src: url("../fonts/carton-slab-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/carton-slab-webfont.woff") format("woff"), url("../fonts/carton-slab-webfont.ttf") format("truetype"), url("../fonts/carton-slab-webfont.svg#cartonslab") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-/* line 74, ../sass/_mixins.scss */
+/* line 62, ../sass/_mixins.scss */
 .text-left {
   text-align: left; }
 
-/* line 75, ../sass/_mixins.scss */
+/* line 63, ../sass/_mixins.scss */
 .text-center {
   text-align: center; }
 
-/* line 76, ../sass/_mixins.scss */
+/* line 64, ../sass/_mixins.scss */
 .text-right {
   text-align: right; }
 
@@ -455,414 +448,314 @@ table {
 /* @include box-sizing(border-box); */
 /* NOTE: value of "padding-box" is only supported in Gecko. So
 probably best not to use it. I mean, were you going to anyway? */
+/* BUTTONS ---------------------------------------------------------*/
+/* line 81, ../sass/_mixins.scss */
+.btn_prev {
+  background: url(../images/icons/arrow_left_white.png) 0 0 no-repeat;
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  z-index: 10;
+  display: block;
+  height: 28px;
+  width: 28px;
+  margin: -14px 0 0 0;
+  text-indent: -99999px; }
+
+/* line 94, ../sass/_mixins.scss */
+.btn_next {
+  background: url(../images/icons/arrow_right_white.png) 0 0 no-repeat;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  z-index: 10;
+  display: block;
+  height: 28px;
+  width: 28px;
+  margin: -14px 0 0 0;
+  text-indent: -99999px; }
+
+/* BORDERS ---------------------------------------------------------*/
+/* line 109, ../sass/_mixins.scss */
+.border_bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: url(../images/backgrounds/border_bottom_white.png) center 0 repeat-x;
+  display: block;
+  width: 100%;
+  height: 23px; }
+
 /* Base / Mobile */
+/********************************************************************
+
+	ZACK GINIES - base.scss
+	-----------------------------
+	author: zack ginies - zack@zackginies.com
+	date: oct 21, 2013 
+	
+	Mobile styles and setting the base styles for the entire site.
+	Using Bones as a loose guide.
+		
+	INDEX
+	-----------------------------------------
+	- General Styles
+	- Links
+	- Headings
+	- Header
+		- Navigation
+	- Footer
+
+
+*******************************************************************/
+/* GENERAL STYLES -------------------------------------------------------*/
+/* line 25, ../sass/_base.scss */
+body, html {
+  height: 100%;
+  width: 100%; }
+
+/* line 30, ../sass/_base.scss */
+body {
+  font-family: 'Didot Italic';
+  font-size: 100%;
+  line-height: 1.5;
+  letter-spacing: .1em; }
+
+/* line 38, ../sass/_base.scss */
+.outer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: table;
+  vertical-align: middle; }
+  /* line 45, ../sass/_base.scss */
+  .outer .container {
+    position: relative;
+    vertical-align: middle;
+    display: table-cell; }
+
+/* line 52, ../sass/_base.scss */
+#main_content {
+  display: none; }
+
+/* LINKS ----------------------------------------------------------------*/
+/* line 58, ../sass/_base.scss */
+a, a:visited {
+  color: #0ee2d6;
+  text-decoration: none;
+  /* on hover */
+  /* on click */
+  /* mobile tap color */ }
+  /* line 63, ../sass/_base.scss */
+  a:hover, a:focus, a:visited:hover, a:visited:focus {
+    color: #0bb7ad; }
+  /* line 73, ../sass/_base.scss */
+  a:link, a:visited:link {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
+
+/* HEADINGS ----------------------------------------------------------------*/
+/* line 80, ../sass/_base.scss */
+h1, h2, h3, h4, h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 500; }
+  /* line 84, ../sass/_base.scss */
+  h1 a, h2 a, h3 a, h4 a, h5 a {
+    text-decoration: none; }
+
+/* line 89, ../sass/_base.scss */
+h1 {
+  font-size: 2.5em;
+  line-height: 1.333em; }
+
+/* line 94, ../sass/_base.scss */
+h2 {
+  font-size: 1.75em;
+  line-height: 1.4em;
+  margin-bottom: 0.375em; }
+
+/* line 100, ../sass/_base.scss */
+h3 {
+  font-size: 1.125em;
+  letter-spacing: .22em;
+  text-align: center;
+  color: white; }
+
+/* line 108, ../sass/_base.scss */
+h4 {
+  font-size: 1.1em;
+  font-weight: 700; }
+
+/* line 113, ../sass/_base.scss */
+h5 {
+  font-size: 0.846em;
+  line-height: 2.09em;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+/* HEADER ----------------------------------------------------------------*/
+/* line 122, ../sass/_base.scss */
+header {
+  height: 100%;
+  overflow: hidden; }
+  /* line 126, ../sass/_base.scss */
+  header h1 {
+    display: none; }
+  /* line 130, ../sass/_base.scss */
+  header p {
+    text-align: center; }
+  /* line 135, ../sass/_base.scss */
+  header .contact a {
+    color: black; }
+
+/* Navigation */
+/* line 144, ../sass/_base.scss */
+nav {
+  display: none; }
+
+/* FOOTER ----------------------------------------------------------------*/
 /* Larger Mobile Devices */
 @media only screen and (min-width: 481px) {
-  /******************************************************************
-  Site Name: This End Up
-  Author: Zack Ginies
+  /********************************************************************
   
-  Stylesheet: 481px and Up Stylesheet
+  	ZACK GINIES - 481.scss
+  	-----------------------------
+  	author: zack ginies - zack@zackginies.com
+  	date: oct 21, 2013 
+  	
+  	Larger mobile devices.
+  	Using Bones as a loose guide.
+  		
+  	INDEX
+  	-----------------------------------------
+  	- General Styles
+  	- Links
+  	- Headings
+  	- Header
+  		- Navigation
+  	- Footer
   
-  This stylesheet is loaded for larger devices. It's set to 
-  481px because at 480px it would load on a landscaped iPhone.
-  This isn't ideal because then you would be loading all those
-  extra styles on that same mobile connection. 
   
-  A word of warning. This size COULD be a larger mobile device,
-  so you still want to keep it pretty light and simply expand
-  upon your base.scss styles.
-  
-  ******************************************************************/
-  /*********************
-  LAYOUT & GRID STYLES
-  *********************/
-  /* line 22, ../sass/_481up.scss */
-  .wrap {
-    width: 1100px; }
-
-  /*********************
-  HEADER STYLES
-  *********************/
-  /* line 30, ../sass/_481up.scss */
-  .header {
-    background: url(../images/backgrounds/placeholder_masthead.jpg) 0 0 no-repeat;
-    background-size: cover;
-    padding-top: 2.5em; }
-    /* line 36, ../sass/_481up.scss */
-    .header #logo {
-      float: left;
-      margin: 0; }
-      /* line 40, ../sass/_481up.scss */
-      .header #logo a {
-        background-size: auto; }
-    /* line 45, ../sass/_481up.scss */
-    .header p.accept {
-      float: left;
-      clear: both;
-      font-family: 'cartonslab'; }
-    /* line 51, ../sass/_481up.scss */
-    .header nav {
-      background: none;
-      position: relative;
-      float: right;
-      width: auto;
-      margin: 0 0 4em 0; }
-      /* line 58, ../sass/_481up.scss */
-      .header nav .nav {
-        background: transparent; }
-        /* line 61, ../sass/_481up.scss */
-        .header nav .nav li {
-          margin: 0 10px; }
-          /* line 64, ../sass/_481up.scss */
-          .header nav .nav li a {
-            font-size: 16px;
-            font-family: 'cartonslab'; }
-            /* line 68, ../sass/_481up.scss */
-            .header nav .nav li a:hover {
-              background: none; }
-
-  /* line 79, ../sass/_481up.scss */
-  #announcement {
-    float: right;
-    width: 320px;
-    clear: both; }
-    /* line 84, ../sass/_481up.scss */
-    #announcement div {
-      padding: 0; }
-
-  /* line 89, ../sass/_481up.scss */
-  #kitchen-hours {
-    float: right;
-    width: 320px;
-    clear: both; }
-    /* line 94, ../sass/_481up.scss */
-    #kitchen-hours table {
-      font-size: 1.3em; }
-      /* line 97, ../sass/_481up.scss */
-      #kitchen-hours table ul {
-        margin: 0; }
-      /* line 101, ../sass/_481up.scss */
-      #kitchen-hours table .oh_day_label {
-        font-weight: normal; }
-
-  /* line 107, ../sass/_481up.scss */
-  #address {
-    float: right;
-    width: 320px;
-    clear: both; }
-
-  /*********************
-  NAVIGATION STYLES
-  *********************/
-  /* .menu is clearfixed inside mixins.scss */
-  /* line 121, ../sass/_481up.scss */
-  .menu {
-    /* end .menu ul */ }
-    /* line 122, ../sass/_481up.scss */
-    .menu ul {
-      /* end .menu ul li */
-      /* highlight current page */
-      /* end current highlighters */ }
-      /* line 123, ../sass/_481up.scss */
-      .menu ul li {
-        /*
-        plan your menus and drop-downs wisely.
-        */ }
-        /* line 124, ../sass/_481up.scss */
-        .menu ul li a {
-          /*
-          you can use hover styles here even though this size
-          has the possibility of being a mobile device.
-          */ }
-
-  /* end .menu */
-  /*********************
-  MENU STYLES
-  *********************/
-  /* line 170, ../sass/_481up.scss */
-  .menu h3 {
-    position: relative;
-    padding-top: 40px;
-    margin: 100px 0; }
-    /* line 175, ../sass/_481up.scss */
-    .menu h3 span.sub {
-      position: absolute;
-      left: 0;
-      bottom: -30px;
-      width: 100%;
-      font-family: 'BebasNeue'; }
-  /* line 184, ../sass/_481up.scss */
-  .menu blockquote {
-    display: block;
-    margin: 0 0 100px 0;
-    color: white; }
-    /* line 189, ../sass/_481up.scss */
-    .menu blockquote p {
-      margin: 0 0 10px 0;
-      font-size: 48px;
-      letter-spacing: .1em;
-      line-height: 1em; }
-    /* line 196, ../sass/_481up.scss */
-    .menu blockquote p:before, .menu blockquote p:after {
-      content: '"'; }
-    /* line 200, ../sass/_481up.scss */
-    .menu blockquote cite {
-      font-size: 18px;
-      font-style: normal;
-      letter-spacing: .2em; }
-  /* line 207, ../sass/_481up.scss */
-  .menu ul {
-    -moz-column-count: 2;
-    /* Firefox */
-    -webkit-column-count: 2;
-    /* Safari and Chrome */
-    column-count: 2;
-    -moz-column-width: 390px;
-    /* Firefox */
-    -webkit-column-width: 390px;
-    /* Safari and Chrome */
-    column-width: 390px;
-    -moz-column-gap: 180px;
-    /* Firefox */
-    -webkit-column-gap: 180px;
-    /* Safari and Chrome */
-    column-gap: 180px; }
-    /* line 220, ../sass/_481up.scss */
-    .menu ul p {
-      display: inline;
-      font-size: 1.6em;
-      line-height: 1.4em;
-      letter-spacing: .1em; }
-    /* line 227, ../sass/_481up.scss */
-    .menu ul h4 {
-      display: inline;
-      font-size: 1.6em;
-      letter-spacing: .15em; }
-    /* line 233, ../sass/_481up.scss */
-    .menu ul li {
-      display: inline-block; }
-
-  /* line 240, ../sass/_481up.scss */
-  #kids .paper-border-bottom-dark {
-    display: none; }
-
-  /* line 246, ../sass/_481up.scss */
-  #seasonal-cocktails h4 {
-    display: block; }
-
-  /* line 252, ../sass/_481up.scss */
-  #serious-cocktails h4 {
-    display: block; }
-
-  /* line 257, ../sass/_481up.scss */
-  #about {
-    display: block; }
-
-  /* line 261, ../sass/_481up.scss */
-  .masthead {
-    display: block;
-    position: relative;
-    height: 680px; }
-    /* line 266, ../sass/_481up.scss */
-    .masthead .wrap {
-      position: relative;
-      height: 100%; }
-    /* line 271, ../sass/_481up.scss */
-    .masthead h3 {
-      position: absolute;
-      bottom: 60px;
-      left: 0;
-      font-size: 30px;
-      letter-spacing: 4px; }
-    /* line 279, ../sass/_481up.scss */
-    .masthead h3:before, .masthead .h3:before, .masthead h3:after, .masthead .h3:after {
-      content: ""; }
-
-  /* line 284, ../sass/_481up.scss */
-  #bites_masthead {
-    background: url(../images/backgrounds/placeholder_masthead_2.jpg) center 0 no-repeat;
-    background-size: cover; }
-
-  /* line 290, ../sass/_481up.scss */
-  #cocktails_masthead {
-    background: url(../images/backgrounds/placeholder_masthead_3.jpg) center 0 no-repeat;
-    background-size: cover; }
-    /* line 294, ../sass/_481up.scss */
-    #cocktails_masthead h3 {
-      left: auto;
-      right: 0; }
-
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  check your menus here. do they look good?
-  do they need tweaking?
-  */
-  /* end .footer-links */ }
+  *******************************************************************/
+  /* GENERAL STYLES -------------------------------------------------------*/ }
 /* Tablet & Small Laptops */
 @media only screen and (min-width: 768px) {
-  /******************************************************************
-  Site Name:
-  Author:
+  /********************************************************************
   
-  Stylesheet: Tablet & Small Desktop Stylesheet
+  	ZACK GINIES - 768up.scss
+  	-----------------------------
+  	author: zack ginies - zack@zackginies.com
+  	date: oct 21, 2013 
+  	
+  	Tablet and smaller laptop styles.
+  	Using Bones as a loose guide.
+  		
+  	INDEX
+  	-----------------------------------------
+  	- General Styles
+  	- Header
+  		- Navigation
+  	- Likes
+  	- Footer
   
-  Here's where you can start getting into the good stuff.
-  This size will work on iPads, other tablets, and desktops.
-  So you can start working with more styles, background images,
-  and other resources. You'll also notice the grid starts to
-  come into play. Have fun!
   
-  ******************************************************************/
-  /*********************
-  GENERAL STYLES
-  *********************/
-  /*********************
-  LAYOUT & GRID STYLES
-  *********************/
-  /* line 26, ../sass/_768up.scss */
-  .wrap {
-    max-width: 1140px; }
+  *******************************************************************/
+  /* GENERAL STYLES -------------------------------------------------------*/
+  /* line 24, ../sass/_768up.scss */
+  body {
+    background: green; }
 
-  /*********************
-  HEADER STYLES
-  *********************/
-  /*********************
-  NAVIGATION STYLES
-  *********************/
-  /* line 42, ../sass/_768up.scss */
-  .nav {
-    background: #eee;
-    border: 0;
-    /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
-    /* line 46, ../sass/_768up.scss */
-    .nav li {
+  /* line 28, ../sass/_768up.scss */
+  #main_content {
+    display: block; }
+
+  /* HEADER ----------------------------------------------------------------*/
+  /* line 34, ../sass/_768up.scss */
+  header {
+    background: white;
+    height: auto;
+    padding: 10px 30px;
+    overflow: hidden; }
+    /* line 40, ../sass/_768up.scss */
+    header h1 {
+      display: block;
       float: left;
-      position: relative;
-      /*
-      plan your menus and drop-downs wisely.
-      */
-      /* showing sub-menus */ }
-      /* line 50, ../sass/_768up.scss */
-      .nav li a {
-        border-bottom: 0;
-        /*
-        you can use hover styles here even though this size
-        has the possibility of being a mobile device.
-        */ }
-        /* line 57, ../sass/_768up.scss */
-        .nav li a:hover, .nav li a:focus {
-          background-color: #dedede; }
-      /* line 70, ../sass/_768up.scss */
-      .nav li ul.sub-menu,
-      .nav li ul.children {
-        margin-top: 0;
-        border: 1px solid #ccc;
-        border-top: 0;
-        position: absolute;
-        display: none;
-        z-index: 8999;
-        /* highlight sub-menu current page */ }
-        /* line 78, ../sass/_768up.scss */
-        .nav li ul.sub-menu li,
-        .nav li ul.children li {
-          /*
-          if you need to go deeper, go nuts
-          just remember deeper menus suck
-          for usability. k, bai.
-          */ }
-          /* line 80, ../sass/_768up.scss */
-          .nav li ul.sub-menu li a,
-          .nav li ul.children li a {
-            padding-left: 10px;
-            border-right: 0;
-            display: block;
-            width: 180px;
-            border-bottom: 1px solid #ccc; }
-          /* line 97, ../sass/_768up.scss */
-          .nav li ul.sub-menu li:last-child a,
-          .nav li ul.children li:last-child a {
-            border-bottom: 0; }
-      /* line 119, ../sass/_768up.scss */
-      .nav li:hover ul {
-        top: auto;
-        display: block; }
+      font-size: .9em; }
+    /* line 46, ../sass/_768up.scss */
+    header .contact {
+      display: none; }
 
-  /* end .nav */
-  /*********************
-  SIDEBARS & ASIDES
-  *********************/
-  /* line 139, ../sass/_768up.scss */
-  .sidebar {
-    margin-top: 2.2em; }
+  /* Navigation */
+  /* line 54, ../sass/_768up.scss */
+  nav {
+    display: block;
+    float: right;
+    font-size: .9em; }
+    /* line 59, ../sass/_768up.scss */
+    nav ul {
+      margin: 7px 0 0 0; }
+    /* line 63, ../sass/_768up.scss */
+    nav li {
+      float: left;
+      margin: 0 0 0 40px;
+      list-style: none; }
 
-  /* line 143, ../sass/_768up.scss */
-  .widgettitle {
-    border-bottom: 2px solid #444;
-    margin-bottom: 0.75em; }
+  /* LIKES ----------------------------------------------------------------*/
+  /* line 72, ../sass/_768up.scss */
+  #likes_wrapper {
+    background: tan;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; }
+    /* line 79, ../sass/_768up.scss */
+    #likes_wrapper .like {
+      height: 100%;
+      width: 100%;
+      float: left;
+      padding: 40px; }
+    /* line 86, ../sass/_768up.scss */
+    #likes_wrapper h2 {
+      margin: 0;
+      text-align: center;
+      line-height: 2.5em; }
+      /* line 91, ../sass/_768up.scss */
+      #likes_wrapper h2 span {
+        display: block;
+        font-size: 3em;
+        text-transform: capitalize; }
 
-  /* line 148, ../sass/_768up.scss */
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
-    /* line 153, ../sass/_768up.scss */
-    .widget ul li {
-      margin-bottom: 0.75em;
-      /* deep nesting */ }
-      /* line 161, ../sass/_768up.scss */
-      .widget ul li ul {
-        margin-top: 0.75em;
-        padding-left: 1em; }
+  /* line 99, ../sass/_768up.scss */
+  #paid {
+    background: red; }
 
-  /* links widget */
-  /* meta widget */
-  /* pages widget */
-  /* recent-posts widget */
-  /* archives widget */
-  /* tag-cloud widget */
-  /* calendar widget */
-  /* category widget */
-  /* recent-comments widget */
-  /* search widget */
-  /* text widget */
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  you'll probably need to do quite a bit
-  of overriding here if you styled them for
-  mobile. Make sure to double check these!
-  */
-  /* line 269, ../sass/_768up.scss */
-  .footer-links ul li {
-    /*
-    be careful with the depth of your menus.
-    it's very rare to have multi-depth menus in
-    the footer.
-    */ }
-
-  /* end .footer-links */ }
+  /* FOOTER ----------------------------------------------------------------*/ }
 /* Desktop */
 @media only screen and (min-width: 1030px) {
-  /******************************************************************
-  Site Name: This End Up
-  Author: Zack Ginies
+  /********************************************************************
   
-  Stylesheet: Desktop Stylsheet
+  	ZACK GINIES - 1030.scss
+  	-----------------------------
+  	author: zack ginies - zack@zackginies.com
+  	date: oct 21, 2013 
+  	
+  	Desktop.
+  	Using Bones as a loose guide.
+  		
+  	INDEX
+  	-----------------------------------------
+  	- General Styles
+  	- Links
+  	- Headings
+  	- Header
+  		- Navigation
+  	- Footer
   
-  This is the desktop size. It's larger than an iPad so it will only
-  be seen on the Desktop. 
   
-  INDEX
-  -----------------------------------------
-  - 
-  
-  
-  ******************************************************************/ }
+  *******************************************************************/
+  /* GENERAL STYLES -------------------------------------------------------*/
+  /* line 25, ../sass/_1030up.scss */
+  body {
+    background: blue; } }
 /* Print */
 @media print {
   /* Welcome to Compass. Use this file to define print styles.
