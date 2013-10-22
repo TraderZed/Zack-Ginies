@@ -29,6 +29,18 @@ body {
 	display: block;
 }
 
+h2 {
+	margin: 0;
+	text-align: center;
+	line-height: 2.5em;
+	
+	span {
+		display: block;
+		font-size: 3em;
+		text-transform: capitalize;
+	}
+}
+
 /* HEADER ----------------------------------------------------------------*/
 
 header {
@@ -82,22 +94,33 @@ nav {
 		float: left;
 		padding: 40px;
 	}
-	
-	h2 {
-		margin: 0;
-		text-align: center;
-		line-height: 2.5em;
-		
-		span {
-			display: block;
-			font-size: 3em;
-			text-transform: capitalize;
-		}
-	}
 }
 
-#paid {
-	background: red;
+/* WORK ----------------------------------------------------------------*/
+
+#work {
+	position: relative;
+	background: $white;
+	
+	.wrapper {
+		position: relative;
+		height: 100%;
+	}
+	
+	.btn_prev.active, .btn_next.active {
+		opacity: 1;
+		cursor: pointer;
+	}
+	
+	.btn_prev, .btn_next {
+		opacity: .2;
+		cursor: default;
+	}
+	
+	.work_item {
+		float: left;
+	}
+
 }
 
 /* FOOTER ----------------------------------------------------------------*/

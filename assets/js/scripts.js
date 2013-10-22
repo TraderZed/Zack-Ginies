@@ -28,8 +28,111 @@ if (!window.getComputedStyle) {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 // as the page loads, call these scripts
 $(document).ready(function() {
+
+
+/* WORK CAROUSEL ----------------------------------------------*/
+
+var s,
+	workCarousel = {
+		settings : {
+			prevBtn 	: $('#work .btn_prev'),
+			nextBtn		: $('#work .btn_next'),
+			currPanel 	: 1,
+			numPanels	: $('.work_item').length,
+			canAdvance	: false,
+			canRegress	: false,
+			panelWidth	: $(window).width()
+		},
+		init : function() {
+			s = this.settings;
+						
+			$('#work .wrapper').width(s.numPanels * s.panelWidth);
+			$('.work_item').width(s.panelWidth)
+			
+			this.bindUIActions();
+			this.checkPos();
+		},
+		bindUIActions : function() {
+			s.nextBtn.on('click', function() {
+				workCarousel.nextPanel();
+			});
+			
+			s.prevBtn.on('click', function() {
+				workCarousel.prevPanel();
+			});
+		},
+		prevPanel : function() {
+			if(s.canRegress == true) {
+				$( "#work .wrapper" ).animate({
+					right: '-='+s.panelWidth
+				}, function() {
+					// Animation complete.
+					s.currPanel--;
+					s.canAdvance = true;
+					s.nextBtn.addClass('active');
+					
+					if(s.currPanel == 1) {
+						s.prevBtn.removeClass('active');
+						s.canRegress = false;
+					}
+				});
+			}
+		},
+		nextPanel : function() {
+			if(s.canAdvance == true) {
+				$( "#work .wrapper" ).animate({
+					right: '+='+s.panelWidth
+				}, function() {
+					// Animation complete.
+					s.currPanel++;
+					s.canRegress = true;
+					s.prevBtn.addClass('active');
+
+					if(s.currPanel >= s.numPanels) {
+						s.nextBtn.removeClass('active');
+						s.canAdvance = false;
+					}
+				});
+			}
+		},
+		checkPos : function() {
+
+			// Check if there is more than 1 panel, if so, activate the next button
+			if(s.currPanel < s.numPanels) {
+				s.nextBtn.addClass('active');
+				s.canAdvance = true;
+			}
+			
+			// Check if we're at the beginning of the carousel
+			if(s.currPanel == 1) {
+				s.prevBtn.removeClass('active');
+			} else {
+				s.prevBtn.addClass('active');
+				s.canRegress = true;
+			}
+			
+			// Check if we're at the end of the carousel
+			if(s.currPanel < s.numPanels) {
+				s.nextBtn.addClass('active');
+
+			} 			
+		}
+	};
+
 
     /*
     Responsive jQuery is a tricky thing.
@@ -54,6 +157,9 @@ $(document).ready(function() {
     /* if is above or equal to 768px */
     if (responsive_viewport >= 768) {
 		$('#likes_wrapper').height(parseInt($(window).height() - $('header').outerHeight()));
+		$('#work').height($(window).height());
+		
+		workCarousel.init();
         
     }
     
@@ -64,6 +170,8 @@ $(document).ready(function() {
     
 	
 	// add all your scripts here
+	
+	
 	
  
 }); /* end of as page load scripts */

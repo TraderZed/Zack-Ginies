@@ -104,6 +104,14 @@ probably best not to use it. I mean, were you going to anyway? */
 	text-indent: -99999px;
 }
 
+.btn_prev.black {
+	background: url(../images/icons/arrow_left_black.png) 0 0 no-repeat;
+}
+
+.btn_next.black {
+	background: url(../images/icons/arrow_right_black.png) 0 0 no-repeat;
+}
+
 /* BORDERS ---------------------------------------------------------*/
 
 .border_bottom {
