@@ -1,0 +1,314 @@
+/******************************************************************
+Site Name: This End Up
+Author: Zack Ginies
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to 
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection. 
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 1100px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+	
+.header {
+	background: url(../images/backgrounds/placeholder_masthead.jpg) 0 0 no-repeat;
+	background-size: cover;
+	padding-top: 2.5em;
+	
+	
+	#logo {
+		float: left;
+		margin: 0;
+		
+		a {
+			background-size: auto;
+		}
+	}
+	
+	p.accept {
+		float: left;
+		clear: both;
+		font-family: 'cartonslab';
+	}
+	
+	nav {
+		background: none;
+		position: relative;
+		float: right;
+		width: auto;
+		margin: 0 0 4em 0;
+		
+		.nav {
+			background: transparent;
+			
+			li {
+				margin: 0 10px;
+			
+				a {
+					font-size: 16px;
+					font-family: 'cartonslab';
+					
+					&:hover {
+						background: none;
+					}
+				}
+			}
+			
+		}
+	}
+		
+}
+
+	#announcement {
+		float: right;
+		width: 320px;
+		clear: both;
+		
+		div {
+			padding: 0;
+		}
+	}
+	
+	#kitchen-hours {
+		float: right;
+		width: 320px;
+		clear: both;
+		
+		table {
+			font-size: 1.3em;
+			
+			ul {
+				margin: 0;
+			}
+			
+			.oh_day_label {
+				font-weight: normal;
+			}
+		}
+	}
+	
+	#address {
+		float: right;
+		width: 320px;
+		clear: both;
+	}
+	
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+}
+
+	/* .menu is clearfixed inside mixins.scss */
+	.menu {
+		ul {
+			li {
+				a {
+					
+					/*
+					you can use hover styles here even though this size
+					has the possibility of being a mobile device.
+					*/
+					&:hover, &:focus {
+					
+					}
+				}
+				
+				&:first-child {}
+				&:last-child {}
+				
+				/*
+				plan your menus and drop-downs wisely.
+				*/
+				ul.sub-menu,
+				ul.children {
+					li {
+						a {
+							&:hover,
+							&:focus {}
+							&:link {}
+						}
+						&:first-child {}
+						&:last-child {}
+					}
+				}
+			} /* end .menu ul li */
+			
+			/* highlight current page */
+			li.current-menu-item, 
+			li.current_page_item,
+			li.current-page-ancestor {
+				a {}
+			}  /* end current highlighters */
+		} /* end .menu ul */
+	} /* end .menu */
+
+/*********************
+MENU STYLES
+*********************/	
+
+.menu {
+
+	h3 {
+		position: relative;
+		padding-top: 40px;
+		margin: 100px 0;
+		
+		span.sub {
+			position: absolute;
+			left: 0;
+			bottom: -30px;
+			width: 100%;
+			font-family: 'BebasNeue';
+		}
+	}
+	
+	blockquote {
+		display: block;
+		margin: 0 0 100px 0;
+		color: $white;
+		
+		p {
+			margin: 0 0 10px 0;
+			font-size: 48px;
+			letter-spacing: .1em;
+			line-height: 1em;
+		}
+		
+			p:before, p:after {
+				content: '"';
+			}
+			
+		cite {
+			font-size: 18px;
+			font-style: normal;
+			letter-spacing: .2em;
+		}
+	}
+
+	ul {
+		-moz-column-count: 2; /* Firefox */
+		-webkit-column-count: 2; /* Safari and Chrome */
+		column-count: 2;
+		
+		-moz-column-width: 390px; /* Firefox */
+		-webkit-column-width: 390px; /* Safari and Chrome */
+		column-width: 390px;
+		
+		-moz-column-gap: 180px; /* Firefox */
+		-webkit-column-gap: 180px; /* Safari and Chrome */
+		column-gap: 180px;
+		
+		p {
+			display: inline;
+			font-size: 1.6em;
+			line-height: 1.4em;
+			letter-spacing: .1em;
+		}
+		
+		h4 {
+			display: inline;
+			font-size: 1.6em;
+			letter-spacing: .15em;
+		}
+		
+		li {
+			display: inline-block;
+		}
+	}
+}
+
+#kids {
+	.paper-border-bottom-dark {
+		display: none;
+	}
+}
+
+#seasonal-cocktails {
+	h4 {
+		display: block;	
+	}
+}
+
+#serious-cocktails {
+	h4 {
+		display: block;	
+	}
+}
+
+#about {
+	display: block;
+}
+
+.masthead {
+	display: block;
+	position: relative;
+	height: 680px;
+
+	.wrap {
+		position: relative;
+		height: 100%;
+	}
+
+	h3 {
+		position: absolute;
+		bottom: 60px;
+		left: 0;
+		font-size: 30px;
+		letter-spacing: 4px;
+	}
+
+		h3:before, .h3:before, h3:after, .h3:after {
+			content: "";
+		}
+}
+
+#bites_masthead {
+	background: url(../images/backgrounds/placeholder_masthead_2.jpg) center 0 no-repeat;
+	background-size: cover;
+
+}
+
+#cocktails_masthead {
+	background: url(../images/backgrounds/placeholder_masthead_3.jpg) center 0 no-repeat;
+	background-size: cover;
+	
+	h3 {
+		left: auto;
+		right: 0;
+	}
+}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+	
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+.footer-links {
+	ul {
+		li {}
+	}
+} /* end .footer-links */
+			

@@ -1,0 +1,67 @@
+/********************************************************************
+
+	ZACK GINIES - style.scss
+	-----------------------------
+	author: zack ginies - zack@zackginies.com
+	date: oct 21, 2013 
+	
+	This file is the main stylesheet that imports and controls the rest.
+	Using Bones as a loose guide - 
+		
+	INDEX
+	-----------------------------------------
+	- Imports
+		- Base / Mobile
+		- Larger Mobile Devices
+		- Tablet & Small Laptops
+		- Desktop
+		- Print
+
+
+*******************************************************************/
+
+/* IMPORTS -------------------------------------------------------*/
+
+@import "normalize";
+@import "mixins";
+
+
+/* Base / Mobile */
+
+@import "base";
+
+
+/* Larger Mobile Devices */
+
+@media only screen and (min-width: 481px) {
+
+	// styles in 481up.scss
+	@import "481up";
+
+} // End media query
+
+
+/* Tablet & Small Laptops */
+
+@media only screen and (min-width: 768px) {
+
+	// styles in 768up.scss
+	@import "768up";
+
+} // End media query
+
+
+/* Desktop */
+
+@media only screen and (min-width: 1030px) {
+
+	// styles in 1030up.scss
+	@import "1030up";
+
+} // End media query
+
+/* Print */ 
+
+@media print {
+	@import "print";
+}
