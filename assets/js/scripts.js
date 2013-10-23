@@ -43,6 +43,8 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 $(document).ready(function() {
 
+	//$(document).scrollTop(0);
+
 
 /* WORK CAROUSEL ----------------------------------------------*/
 
@@ -55,16 +57,19 @@ var s,
 			numPanels	: $('.work_item').length,
 			canAdvance	: false,
 			canRegress	: false,
-			panelWidth	: $(window).width()
+			panelWidth	: 0
 		},
 		init : function() {
 			s = this.settings;
-						
-			$('#work .wrapper').width(s.numPanels * s.panelWidth);
-			$('.work_item').width(s.panelWidth)
 			
+			// Check if there is more than 1 panel, if so, activate the next button
+			if(s.currPanel < s.numPanels) {
+				s.nextBtn.addClass('active');
+				s.canAdvance = true;
+			}	
+									
 			this.bindUIActions();
-			this.checkPos();
+			this.setupPanels();
 		},
 		bindUIActions : function() {
 			s.nextBtn.on('click', function() {
@@ -74,6 +79,19 @@ var s,
 			s.prevBtn.on('click', function() {
 				workCarousel.prevPanel();
 			});
+			
+			$(window).on('resize', function() {
+				workCarousel.setupPanels();
+			});
+		},
+		setupPanels : function() {
+			s.panelWidth = $(window).width();
+
+			$('#work .wrapper').width(s.numPanels * s.panelWidth);
+			$('.work_item').width(s.panelWidth);
+			
+			// reposition the work wrapper if the user resizes the browser
+			$('#work .wrapper').css('right', (s.currPanel - 1) * s.panelWidth);
 		},
 		prevPanel : function() {
 			if(s.canRegress == true) {
@@ -108,28 +126,6 @@ var s,
 					}
 				});
 			}
-		},
-		checkPos : function() {
-
-			// Check if there is more than 1 panel, if so, activate the next button
-			if(s.currPanel < s.numPanels) {
-				s.nextBtn.addClass('active');
-				s.canAdvance = true;
-			}
-			
-			// Check if we're at the beginning of the carousel
-			if(s.currPanel == 1) {
-				s.prevBtn.removeClass('active');
-			} else {
-				s.prevBtn.addClass('active');
-				s.canRegress = true;
-			}
-			
-			// Check if we're at the end of the carousel
-			if(s.currPanel < s.numPanels) {
-				s.nextBtn.addClass('active');
-
-			} 			
 		}
 	};
 
