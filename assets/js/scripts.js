@@ -88,7 +88,7 @@ var s,
 			s.panelWidth = $(window).width();
 
 			$('#work .wrapper').width(s.numPanels * s.panelWidth);
-			$('.work_item').width(s.panelWidth);
+			$('.work_item').width(s.panelWidth - 300);
 			
 			// reposition the work wrapper if the user resizes the browser
 			$('#work .wrapper').css('right', (s.currPanel - 1) * s.panelWidth);

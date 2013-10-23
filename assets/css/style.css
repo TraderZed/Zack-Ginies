@@ -644,7 +644,10 @@ nav {
   
   
   *******************************************************************/
-  /* GENERAL STYLES -------------------------------------------------------*/ }
+  /* GENERAL STYLES -------------------------------------------------------*/
+  /* line 25, ../sass/_481up.scss */
+  body {
+    min-width: 820px; } }
 /* Tablet & Small Laptops */
 @media only screen and (min-width: 768px) {
   /********************************************************************
@@ -725,34 +728,57 @@ nav {
     position: relative;
     height: 100%;
     width: 100%;
+    min-height: 650px;
     overflow: hidden; }
-    /* line 91, ../sass/_768up.scss */
+    /* line 92, ../sass/_768up.scss */
     #likes_wrapper .like {
       height: 100%;
       width: 100%;
+      min-height: 650px;
       float: left;
       padding: 40px; }
 
   /* WORK ----------------------------------------------------------------*/
-  /* line 101, ../sass/_768up.scss */
+  /* line 103, ../sass/_768up.scss */
   #work {
     position: relative;
-    background: white; }
-    /* line 105, ../sass/_768up.scss */
+    background: white;
+    min-height: 650px;
+    overflow: hidden; }
+    /* line 109, ../sass/_768up.scss */
     #work .wrapper {
       position: relative;
-      height: 100%; }
-    /* line 110, ../sass/_768up.scss */
+      height: 100%;
+      min-height: 650px; }
+    /* line 115, ../sass/_768up.scss */
     #work .btn_prev.active, #work .btn_next.active {
       opacity: 1;
       cursor: pointer; }
-    /* line 115, ../sass/_768up.scss */
+    /* line 120, ../sass/_768up.scss */
     #work .btn_prev, #work .btn_next {
       opacity: .2;
       cursor: default; }
-    /* line 120, ../sass/_768up.scss */
+    /* line 125, ../sass/_768up.scss */
     #work .work_item {
-      float: left; }
+      float: left;
+      padding: 0 150px; }
+      /* line 129, ../sass/_768up.scss */
+      #work .work_item h3 {
+        text-align: left;
+        letter-spacing: .1em;
+        line-height: 2.5em;
+        color: black; }
+        /* line 135, ../sass/_768up.scss */
+        #work .work_item h3 span {
+          display: block;
+          font-size: 3em; }
+      /* line 141, ../sass/_768up.scss */
+      #work .work_item .visual {
+        width: 100%;
+        text-align: center; }
+      /* line 146, ../sass/_768up.scss */
+      #work .work_item .writeup {
+        display: none; }
 
   /* FOOTER ----------------------------------------------------------------*/ }
 /* Desktop */
@@ -781,7 +807,27 @@ nav {
   /* GENERAL STYLES -------------------------------------------------------*/
   /* line 25, ../sass/_1030up.scss */
   body {
-    background: blue; } }
+    background: blue; }
+
+  /* WORK ----------------------------------------------------------------*/
+  /* line 35, ../sass/_1030up.scss */
+  #work .work_item .visual {
+    float: left;
+    width: 525px;
+    height: 450px;
+    margin: 0 50px 0 0; }
+  /* line 42, ../sass/_1030up.scss */
+  #work .work_item .writeup {
+    display: block;
+    margin: 0 0 0 575px; }
+    /* line 46, ../sass/_1030up.scss */
+    #work .work_item .writeup p, #work .work_item .writeup ul {
+      font-size: 11px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    /* line 51, ../sass/_1030up.scss */
+    #work .work_item .writeup ul {
+      margin: 0;
+      padding: 0 0 0 10px; } }
 /* Print */
 @media print {
   /* Welcome to Compass. Use this file to define print styles.

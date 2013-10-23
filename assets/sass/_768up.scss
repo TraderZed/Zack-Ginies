@@ -86,11 +86,13 @@ nav {
 	position: relative;
 	height: 100%;
 	width: 100%;
+	min-height: 650px;
 	overflow: hidden;
 	
 	.like {
 		height: 100%;
 		width: 100%;
+		min-height: 650px;
 		float: left;
 		padding: 40px;
 	}
@@ -101,10 +103,13 @@ nav {
 #work {
 	position: relative;
 	background: $white;
+	min-height: 650px;
+	overflow: hidden;
 	
 	.wrapper {
 		position: relative;
 		height: 100%;
+		min-height: 650px;
 	}
 	
 	.btn_prev.active, .btn_next.active {
@@ -119,6 +124,29 @@ nav {
 	
 	.work_item {
 		float: left;
+		padding: 0 150px;
+		
+		h3 {
+			text-align: left;
+			letter-spacing: .1em;
+			line-height: 2.5em;
+			color: $black;
+			
+			span {
+				display: block;
+				font-size: 3em;
+			}
+		}
+		
+		.visual {
+			width: 100%;
+			text-align: center;
+		}
+		
+		.writeup {
+			display: none;
+		}
+		
 	}
 
 }

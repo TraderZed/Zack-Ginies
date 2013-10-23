@@ -25,3 +25,35 @@
 body {
 	background: blue;
 }
+
+/* WORK ----------------------------------------------------------------*/
+
+#work {
+	
+	.work_item {
+		
+		.visual {
+			float: left;
+			width: 525px;
+			height: 450px;
+			margin: 0 50px 0 0;
+		}
+		
+		.writeup {
+			display: block;
+			margin: 0 0 0 575px;
+						
+			p, ul {
+				font-size: 11px;
+				font-family: $sans-serif;
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0 0 0 10px;
+			}
+		}
+		
+	}
+
+}
