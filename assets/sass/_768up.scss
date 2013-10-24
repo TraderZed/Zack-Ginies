@@ -81,21 +81,45 @@ nav {
 
 /* LIKES ----------------------------------------------------------------*/
 
-#likes_wrapper {
+#likes {
 	background: tan;
 	position: relative;
-	height: 100%;
-	width: 100%;
 	min-height: 650px;
 	overflow: hidden;
 	
-	.like {
+	.wrapper {
+		position: relative;
 		height: 100%;
-		width: 100%;
 		min-height: 650px;
-		float: left;
-		padding: 40px;
 	}
+	
+	.btn_prev.active, .btn_next.active {
+		opacity: 1;
+		cursor: pointer;
+	}
+	
+	.btn_prev, .btn_next {
+		opacity: .2;
+		cursor: default;
+	}
+	
+	.like {
+
+		float: left;
+		
+		h2 {
+			color: $white;
+		}
+		
+		video {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: auto;
+		}
+	}
+	
 }
 
 /* WORK ----------------------------------------------------------------*/

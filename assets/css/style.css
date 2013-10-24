@@ -540,60 +540,61 @@ body {
   .outer .container {
     position: relative;
     vertical-align: middle;
-    display: table-cell; }
+    display: table-cell;
+    z-index: 5; }
 
-/* line 52, ../sass/_base.scss */
+/* line 53, ../sass/_base.scss */
 #main_content {
   display: none; }
 
 /* LINKS ----------------------------------------------------------------*/
-/* line 58, ../sass/_base.scss */
+/* line 59, ../sass/_base.scss */
 a, a:visited {
-  color: #0ee2d6;
+  color: #b57fec;
   text-decoration: none;
   /* on hover */
   /* on click */
   /* mobile tap color */ }
-  /* line 63, ../sass/_base.scss */
+  /* line 64, ../sass/_base.scss */
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #0bb7ad; }
-  /* line 73, ../sass/_base.scss */
+    color: #9e57e6; }
+  /* line 74, ../sass/_base.scss */
   a:link, a:visited:link {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
 /* HEADINGS ----------------------------------------------------------------*/
-/* line 80, ../sass/_base.scss */
+/* line 81, ../sass/_base.scss */
 h1, h2, h3, h4, h5 {
   text-rendering: optimizelegibility;
   font-weight: 500; }
-  /* line 84, ../sass/_base.scss */
+  /* line 85, ../sass/_base.scss */
   h1 a, h2 a, h3 a, h4 a, h5 a {
     text-decoration: none; }
 
-/* line 89, ../sass/_base.scss */
+/* line 90, ../sass/_base.scss */
 h1 {
   font-size: 2.5em;
   line-height: 1.333em; }
 
-/* line 94, ../sass/_base.scss */
+/* line 95, ../sass/_base.scss */
 h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em; }
 
-/* line 100, ../sass/_base.scss */
+/* line 101, ../sass/_base.scss */
 h3 {
   font-size: 1.125em;
   letter-spacing: .22em;
   text-align: center;
   color: white; }
 
-/* line 108, ../sass/_base.scss */
+/* line 109, ../sass/_base.scss */
 h4 {
   font-size: 1.1em;
   font-weight: 700; }
 
-/* line 113, ../sass/_base.scss */
+/* line 114, ../sass/_base.scss */
 h5 {
   font-size: 0.846em;
   line-height: 2.09em;
@@ -601,22 +602,22 @@ h5 {
   letter-spacing: 2px; }
 
 /* HEADER ----------------------------------------------------------------*/
-/* line 122, ../sass/_base.scss */
+/* line 123, ../sass/_base.scss */
 header {
   height: 100%;
   overflow: hidden; }
-  /* line 126, ../sass/_base.scss */
+  /* line 127, ../sass/_base.scss */
   header h1 {
     display: none; }
-  /* line 130, ../sass/_base.scss */
+  /* line 131, ../sass/_base.scss */
   header p {
     text-align: center; }
-  /* line 135, ../sass/_base.scss */
+  /* line 136, ../sass/_base.scss */
   header .contact a {
     color: black; }
 
 /* Navigation */
-/* line 144, ../sass/_base.scss */
+/* line 145, ../sass/_base.scss */
 nav {
   display: none; }
 
@@ -723,60 +724,77 @@ nav {
 
   /* LIKES ----------------------------------------------------------------*/
   /* line 84, ../sass/_768up.scss */
-  #likes_wrapper {
+  #likes {
     background: tan;
     position: relative;
-    height: 100%;
-    width: 100%;
     min-height: 650px;
     overflow: hidden; }
-    /* line 92, ../sass/_768up.scss */
-    #likes_wrapper .like {
+    /* line 90, ../sass/_768up.scss */
+    #likes .wrapper {
+      position: relative;
       height: 100%;
-      width: 100%;
-      min-height: 650px;
-      float: left;
-      padding: 40px; }
+      min-height: 650px; }
+    /* line 96, ../sass/_768up.scss */
+    #likes .btn_prev.active, #likes .btn_next.active {
+      opacity: 1;
+      cursor: pointer; }
+    /* line 101, ../sass/_768up.scss */
+    #likes .btn_prev, #likes .btn_next {
+      opacity: .2;
+      cursor: default; }
+    /* line 106, ../sass/_768up.scss */
+    #likes .like {
+      float: left; }
+      /* line 110, ../sass/_768up.scss */
+      #likes .like h2 {
+        color: white; }
+      /* line 114, ../sass/_768up.scss */
+      #likes .like video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto; }
 
   /* WORK ----------------------------------------------------------------*/
-  /* line 103, ../sass/_768up.scss */
+  /* line 127, ../sass/_768up.scss */
   #work {
     position: relative;
     background: white;
     min-height: 650px;
     overflow: hidden; }
-    /* line 109, ../sass/_768up.scss */
+    /* line 133, ../sass/_768up.scss */
     #work .wrapper {
       position: relative;
       height: 100%;
       min-height: 650px; }
-    /* line 115, ../sass/_768up.scss */
+    /* line 139, ../sass/_768up.scss */
     #work .btn_prev.active, #work .btn_next.active {
       opacity: 1;
       cursor: pointer; }
-    /* line 120, ../sass/_768up.scss */
+    /* line 144, ../sass/_768up.scss */
     #work .btn_prev, #work .btn_next {
       opacity: .2;
       cursor: default; }
-    /* line 125, ../sass/_768up.scss */
+    /* line 149, ../sass/_768up.scss */
     #work .work_item {
       float: left;
       padding: 0 150px; }
-      /* line 129, ../sass/_768up.scss */
+      /* line 153, ../sass/_768up.scss */
       #work .work_item h3 {
         text-align: left;
         letter-spacing: .1em;
         line-height: 2.5em;
         color: black; }
-        /* line 135, ../sass/_768up.scss */
+        /* line 159, ../sass/_768up.scss */
         #work .work_item h3 span {
           display: block;
           font-size: 3em; }
-      /* line 141, ../sass/_768up.scss */
+      /* line 165, ../sass/_768up.scss */
       #work .work_item .visual {
         width: 100%;
         text-align: center; }
-      /* line 146, ../sass/_768up.scss */
+      /* line 170, ../sass/_768up.scss */
       #work .work_item .writeup {
         display: none; }
 

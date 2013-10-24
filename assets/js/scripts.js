@@ -43,7 +43,90 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 $(document).ready(function() {
 
-	//$(document).scrollTop(0);
+	$(document).scrollTop(0);
+
+/* LIKES CAROUSEL ----------------------------------------------*/
+
+var s1,
+	likeCarousel = {
+		settings : {
+			prevBtn 	: $('#likes .btn_prev'),
+			nextBtn		: $('#likes .btn_next'),
+			currPanel 	: 1,
+			numPanels	: $('.like').length,
+			canAdvance	: false,
+			canRegress	: false,
+			panelWidth	: 0
+		},
+		init : function() {
+			s1 = this.settings;
+			
+			// Check if there is more than 1 panel, if so, activate the next button
+			if(s1.currPanel < s1.numPanels) {
+				s1.nextBtn.addClass('active');
+				s1.canAdvance = true;
+			}	
+									
+			this.bindUIActions();
+			this.setupPanels();
+		},
+		bindUIActions : function() {
+			s1.nextBtn.on('click', function() {
+				likeCarousel.nextPanel();
+			});
+			
+			s1.prevBtn.on('click', function() {
+				likeCarousel.prevPanel();
+			});
+			
+			$(window).on('resize', function() {
+				likeCarousel.setupPanels();
+			});
+		},
+		setupPanels : function() {
+			s1.panelWidth = $(window).width();
+
+			$('#likes .wrapper').width(s1.numPanels * s1.panelWidth);
+			$('.like').width(s1.panelWidth);
+			
+			// reposition the work wrapper if the user resizes the browser
+			$('#likes .wrapper').css('right', (s1.currPanel - 1) * s1.panelWidth);
+		},
+		prevPanel : function() {
+			if(s1.canRegress == true) {
+				$( "#likes .wrapper" ).animate({
+					right: '-='+s1.panelWidth
+				}, function() {
+					// Animation complete.
+					s1.currPanel--;
+					s1.canAdvance = true;
+					s1.nextBtn.addClass('active');
+					
+					if(s1.currPanel == 1) {
+						s1.prevBtn.removeClass('active');
+						s1.canRegress = false;
+					}
+				});
+			}
+		},
+		nextPanel : function() {
+			if(s1.canAdvance == true) {
+				$( "#likes .wrapper" ).animate({
+					right: '+='+s1.panelWidth
+				}, function() {
+					// Animation complete.
+					s1.currPanel++;
+					s1.canRegress = true;
+					s1.prevBtn.addClass('active');
+
+					if(s1.currPanel >= s1.numPanels) {
+						s1.nextBtn.removeClass('active');
+						s1.canAdvance = false;
+					}
+				});
+			}
+		}
+	};
 
 
 /* WORK CAROUSEL ----------------------------------------------*/
@@ -152,9 +235,10 @@ var s,
     
     /* if is above or equal to 768px */
     if (responsive_viewport >= 768) {
-		$('#likes_wrapper').height(parseInt($(window).height() - $('header').outerHeight()));
+		$('#likes').height(parseInt($(window).height() - $('header').outerHeight()));
 		$('#work').height($(window).height());
 		
+		likeCarousel.init();
 		workCarousel.init();
         
     }
