@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 /* LIKES CAROUSEL ----------------------------------------------*/
 
-var s1,
+var sx,
 	likeCarousel = {
 		settings : {
 			prevBtn 	: $('#likes .btn_prev'),
@@ -56,75 +56,64 @@ var s1,
 			numPanels	: $('.like').length,
 			canAdvance	: false,
 			canRegress	: false,
-			panelWidth	: 0
+			panelWidth	: 0,
+			verbage		: ['Biking', 'Bad Girls Club', 'Bingo', 'Video Games', 'Working Out'],
+			videos		: ['biking', 'badgirlsclub', 'bingo', 'videogames', 'workingout']
 		},
 		init : function() {
-			s1 = this.settings;
+			sx = this.settings;
 			
 			// Check if there is more than 1 panel, if so, activate the next button
-			if(s1.currPanel < s1.numPanels) {
-				s1.nextBtn.addClass('active');
-				s1.canAdvance = true;
+			if(sx.currPanel < sx.numPanels) {
+				sx.nextBtn.addClass('active');
+				sx.canAdvance = true;
 			}	
+			
+			// Randomize both arrays in the same order
+			var i = 0, len = sx.verbage.length, next, order=[];
+			
+			while(i<len)order[i]= ++i; //[1,2,3...]
+			order.sort(function(){return Math.random()-.5});
+			
+			
+			for(i= 0; i<len; i++){
+			    next= order[i];
+			    sx.verbage.push(sx.verbage[next]);
+			    sx.videos.push(sx.videos[next]);
+			}
+			sx.verbage.splice(0, len);
+			sx.videos.splice(0, len);
+			
+			console.log(sx.verbage);
+			console.log(sx.videos);
+			
+			$('#likes h2 span').html(sx.verbage[0]);
 									
 			this.bindUIActions();
 			this.setupPanels();
 		},
 		bindUIActions : function() {
-			s1.nextBtn.on('click', function() {
+			sx.nextBtn.on('click', function() {
 				likeCarousel.nextPanel();
 			});
 			
-			s1.prevBtn.on('click', function() {
+			sx.prevBtn.on('click', function() {
 				likeCarousel.prevPanel();
-			});
-			
-			$(window).on('resize', function() {
-				likeCarousel.setupPanels();
 			});
 		},
 		setupPanels : function() {
-			s1.panelWidth = $(window).width();
 
-			$('#likes .wrapper').width(s1.numPanels * s1.panelWidth);
-			$('.like').width(s1.panelWidth);
-			
-			// reposition the work wrapper if the user resizes the browser
-			$('#likes .wrapper').css('right', (s1.currPanel - 1) * s1.panelWidth);
 		},
 		prevPanel : function() {
-			if(s1.canRegress == true) {
-				$( "#likes .wrapper" ).animate({
-					right: '-='+s1.panelWidth
-				}, function() {
-					// Animation complete.
-					s1.currPanel--;
-					s1.canAdvance = true;
-					s1.nextBtn.addClass('active');
-					
-					if(s1.currPanel == 1) {
-						s1.prevBtn.removeClass('active');
-						s1.canRegress = false;
-					}
-				});
-			}
+
 		},
 		nextPanel : function() {
-			if(s1.canAdvance == true) {
-				$( "#likes .wrapper" ).animate({
-					right: '+='+s1.panelWidth
-				}, function() {
-					// Animation complete.
-					s1.currPanel++;
-					s1.canRegress = true;
-					s1.prevBtn.addClass('active');
-
-					if(s1.currPanel >= s1.numPanels) {
-						s1.nextBtn.removeClass('active');
-						s1.canAdvance = false;
-					}
-				});
-			}
+			console.log('hi');
+			$('#likes h2 span').hide('slide', function() {
+				console.log('done');
+				$('#likes h2 span').html(sx.verbage[2]);
+				$('#likes h2 span').show('slide',{direction: 'right'})
+			});
 		}
 	};
 
