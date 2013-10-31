@@ -52,43 +52,74 @@ var sx,
 		settings : {
 			prevBtn 	: $('#likes .btn_prev'),
 			nextBtn		: $('#likes .btn_next'),
-			currPanel 	: 1,
+			video		: $('#likes video'),
+			currPanel 	: 0,
 			numPanels	: $('.like').length,
 			canAdvance	: false,
 			canRegress	: false,
 			panelWidth	: 0,
-			verbage		: ['Biking', 'Bad Girls Club', 'Bingo', 'Video Games', 'Working Out'],
-			videos		: ['biking', 'badgirlsclub', 'bingo', 'videogames', 'workingout']
+			verbage		: ['Biking','Pok&eacute;mon', 'Drag Queens', 'Bad Girls Club', 'Bingo', 'Video Games', 'Working Out'],
+			videos		: ['biking', 'pokemon', 'dragqueens', 'badgirlsclub', 'bingo', 'videogames', 'workingout']
 		},
 		init : function() {
 			sx = this.settings;
 			
 			// Check if there is more than 1 panel, if so, activate the next button
-			if(sx.currPanel < sx.numPanels) {
+			if(sx.currPanel < sx.verbage.length) {
 				sx.nextBtn.addClass('active');
 				sx.canAdvance = true;
 			}	
 			
-			// Randomize both arrays in the same order
-			var i = 0, len = sx.verbage.length, next, order=[];
+			// Randomize both arrays in the same order - Major credit to Dineshkani (http://stackoverflow.com/users/1507442/dineshkani)
+			var arrayShuff = new Array();
 			
-			while(i<len)order[i]= ++i; //[1,2,3...]
-			order.sort(function(){return Math.random()-.5});
-			
-			
-			for(i= 0; i<len; i++){
-			    next= order[i];
-			    sx.verbage.push(sx.verbage[next]);
-			    sx.videos.push(sx.videos[next]);
+			for (var i=0;i< sx.verbage.length;i++){
+				arrayShuff.push(i);
 			}
-			sx.verbage.splice(0, len);
-			sx.videos.splice(0, len);
 			
-			console.log(sx.verbage);
+			fisherYates(arrayShuff);
+			
+			function fisherYates ( myArray ) {
+				var i = myArray.length, j, tempi, tempj;
+				if ( i === 0 ) return false;
+				while ( --i ) {
+					j = Math.floor( Math.random() * ( i + 1 ) );
+					tempi = myArray[i];
+					tempj = myArray[j];
+					myArray[i] = tempj;
+					myArray[j] = tempi;
+				}
+			}
+			
+			var temp_verbage = new Array();
+			
+			for (i=0;i < arrayShuff.length;i++){
+				temp_verbage.push(sx.verbage[arrayShuff[i]]);
+			}
+			
+			sx.verbage = new Array();
+			sx.verbage = temp_verbage.slice(0);
+			temp_verbage = new Array();
+			
+			for (i=0;i < arrayShuff.length;i++){
+				temp_verbage.push(sx.videos[arrayShuff[i]]);
+			}
+			sx.videos = new Array();
+			sx.videos = temp_verbage.slice(0);
+			
 			console.log(sx.videos);
+			console.log(sx.verbage);
 			
-			$('#likes h2 span').html(sx.verbage[0]);
-									
+			console.log(sx.video[0]);
+			console.log(sx.currPanel);
+			
+			// Setup first panel
+			$('#likes h2 span').html(sx.verbage[sx.currPanel]);			
+			
+			sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+			sx.video[0].load();
+			sx.video[0].play();
+			
 			this.bindUIActions();
 			this.setupPanels();
 		},
@@ -108,12 +139,28 @@ var sx,
 
 		},
 		nextPanel : function() {
-			console.log('hi');
-			$('#likes h2 span').hide('slide', function() {
-				console.log('done');
-				$('#likes h2 span').html(sx.verbage[2]);
-				$('#likes h2 span').show('slide',{direction: 'right'})
-			});
+			if(sx.canAdvance == true) {
+
+				sx.currPanel++;
+				
+				sx.video.fadeOut('slow', function() {
+					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+					sx.video[0].load();
+					sx.video[0].play();
+					
+					sx.video.fadeIn('slow');
+				})
+				
+				$('#likes h2 span').hide('slide', function() {
+					$('#likes h2 span').html(sx.verbage[sx.currPanel]);
+					$('#likes h2 span').show('slide',{direction: 'right'})
+				});
+				
+				if(sx.currPanel >= sx.videos.length - 1) {
+					sx.nextBtn.removeClass('active');
+					sx.canAdvance = false;
+				}
+			}
 		}
 	};
 
