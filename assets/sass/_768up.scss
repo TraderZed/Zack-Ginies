@@ -44,9 +44,11 @@ h2 {
 /* HEADER ----------------------------------------------------------------*/
 
 header {
+	position: relative;
 	background: $white;
 	height: auto;
 	padding: 10px 30px;
+	z-index: 10;
 	overflow: hidden;
 	
 	h1 {
@@ -82,7 +84,7 @@ nav {
 /* LIKES ----------------------------------------------------------------*/
 
 #likes {
-	background: tan;
+	background: $white;
 	position: relative;
 	min-height: 650px;
 	overflow: hidden;
@@ -112,11 +114,7 @@ nav {
 		}
 		
 		video {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: auto;
+			display: none;
 		}
 	}
 	

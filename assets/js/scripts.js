@@ -29,17 +29,6 @@ if (!window.getComputedStyle) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 // as the page loads, call these scripts
 $(document).ready(function() {
 
@@ -58,8 +47,8 @@ var sx,
 			canAdvance	: false,
 			canRegress	: false,
 			panelWidth	: 0,
-			verbage		: ['Biking','Pok&eacute;mon', 'Drag Queens', 'Bad Girls Club', 'Bingo', 'Video Games', 'Working Out'],
-			videos		: ['biking', 'pokemon', 'dragqueens', 'badgirlsclub', 'bingo', 'videogames', 'workingout']
+			verbage		: ['Biking','Pok&eacute;mon', 'Drag Queens', 'Bad Girls Club', 'Bingo', 'Video Games', 'Working Out', 'Godzilla', 'Mega Man', 'Cats', 'Horror Movies', 'Palm Springs', 'Margaritas', 'Katy Perry', 'Gundam', 'Karaoke'],
+			videos		: ['biking', 'pokemon', 'dragqueens', 'badgirlsclub', 'bingo', 'videogames', 'workingout', 'godzilla', 'megaman_alt', 'cats', 'horror_alt', 'palmsprings', 'margaritas', 'katyperry', 'gundam', 'karaoke']
 		},
 		init : function() {
 			sx = this.settings;
@@ -107,11 +96,13 @@ var sx,
 			sx.videos = new Array();
 			sx.videos = temp_verbage.slice(0);
 			
+/*
 			console.log(sx.videos);
 			console.log(sx.verbage);
 			
-			console.log(sx.video[0]);
+			console.log(sx.video);
 			console.log(sx.currPanel);
+*/
 			
 			// Setup first panel
 			$('#likes h2 span').html(sx.verbage[sx.currPanel]);			
@@ -119,6 +110,11 @@ var sx,
 			sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
 			sx.video[0].load();
 			sx.video[0].play();
+			
+			// Setup the second panel
+			sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel+1]+'.mp4';
+			sx.video[1].load();
+			sx.video[1].play();
 			
 			this.bindUIActions();
 			this.setupPanels();
@@ -136,20 +132,59 @@ var sx,
 
 		},
 		prevPanel : function() {
+			if(sx.canRegress == true) {
 
+				sx.currPanel++;
+								
+				if($(sx.video[0]).is(":visible") == true) {
+					
+					$(sx.video[0]).fadeOut('slow');
+					
+					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+					$(sx.video[1]).fadeIn('slow');
+					sx.video[1].load();
+					sx.video[1].play();
+				} else {
+					$(sx.video[1]).fadeOut('slow');
+					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+						$(sx.video[0]).fadeIn('slow');
+						sx.video[0].load();
+						sx.video[0].play();
+				}
+				
+				
+				$('#likes h2 span').hide('slide', function() {
+					$('#likes h2 span').html(sx.verbage[sx.currPanel]);
+					$('#likes h2 span').show('slide',{direction: 'right'})
+				});
+				
+				if(sx.currPanel >= sx.videos.length - 1) {
+					sx.nextBtn.removeClass('active');
+					sx.canRegress = false;
+				}
+			}
 		},
 		nextPanel : function() {
 			if(sx.canAdvance == true) {
 
 				sx.currPanel++;
-				
-				sx.video.fadeOut('slow', function() {
-					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
-					sx.video[0].load();
-					sx.video[0].play();
+								
+				if($(sx.video[0]).is(":visible") == true) {
 					
-					sx.video.fadeIn('slow');
-				})
+					$(sx.video[0]).fadeOut('slow');
+					
+					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+					$(sx.video[1]).fadeIn('slow');
+					sx.video[1].load();
+					sx.video[1].play();
+				} else {
+					$(sx.video[1]).fadeOut('slow');
+					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
+						$(sx.video[0]).fadeIn('slow');
+						sx.video[0].load();
+						sx.video[0].play();
+				}
+				
 				
 				$('#likes h2 span').hide('slide', function() {
 					$('#likes h2 span').html(sx.verbage[sx.currPanel]);

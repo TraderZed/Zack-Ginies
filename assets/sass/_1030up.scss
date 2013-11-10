@@ -26,6 +26,25 @@ body {
 	background: blue;
 }
 
+/* LIKES ----------------------------------------------------------------*/
+
+#likes {
+	.like {
+		video {
+			display: block;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: auto;
+		}
+		
+		#video_1 {
+			display: none;
+		}
+	}
+}
+
 /* WORK ----------------------------------------------------------------*/
 
 #work {

@@ -550,14 +550,14 @@ body {
 /* LINKS ----------------------------------------------------------------*/
 /* line 59, ../sass/_base.scss */
 a, a:visited {
-  color: #b57fec;
+  color: #ff007e;
   text-decoration: none;
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   /* line 64, ../sass/_base.scss */
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #9e57e6; }
+    color: #d10067; }
   /* line 74, ../sass/_base.scss */
   a:link, a:visited:link {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
@@ -694,107 +694,105 @@ nav {
   /* HEADER ----------------------------------------------------------------*/
   /* line 46, ../sass/_768up.scss */
   header {
+    position: relative;
     background: white;
     height: auto;
     padding: 10px 30px;
+    z-index: 10;
     overflow: hidden; }
-    /* line 52, ../sass/_768up.scss */
+    /* line 54, ../sass/_768up.scss */
     header h1 {
       display: block;
       float: left;
       font-size: .9em; }
-    /* line 58, ../sass/_768up.scss */
+    /* line 60, ../sass/_768up.scss */
     header .contact {
       display: none; }
 
   /* Navigation */
-  /* line 66, ../sass/_768up.scss */
+  /* line 68, ../sass/_768up.scss */
   nav {
     display: block;
     float: right;
     font-size: .9em; }
-    /* line 71, ../sass/_768up.scss */
+    /* line 73, ../sass/_768up.scss */
     nav ul {
       margin: 7px 0 0 0; }
-    /* line 75, ../sass/_768up.scss */
+    /* line 77, ../sass/_768up.scss */
     nav li {
       float: left;
       margin: 0 0 0 40px;
       list-style: none; }
 
   /* LIKES ----------------------------------------------------------------*/
-  /* line 84, ../sass/_768up.scss */
+  /* line 86, ../sass/_768up.scss */
   #likes {
-    background: tan;
+    background: white;
     position: relative;
     min-height: 650px;
     overflow: hidden; }
-    /* line 90, ../sass/_768up.scss */
+    /* line 92, ../sass/_768up.scss */
     #likes .wrapper {
       position: relative;
       height: 100%;
       min-height: 650px; }
-    /* line 96, ../sass/_768up.scss */
+    /* line 98, ../sass/_768up.scss */
     #likes .btn_prev.active, #likes .btn_next.active {
       opacity: 1;
       cursor: pointer; }
-    /* line 101, ../sass/_768up.scss */
+    /* line 103, ../sass/_768up.scss */
     #likes .btn_prev, #likes .btn_next {
       opacity: .2;
       cursor: default; }
-    /* line 106, ../sass/_768up.scss */
+    /* line 108, ../sass/_768up.scss */
     #likes .like {
       float: left; }
-      /* line 110, ../sass/_768up.scss */
+      /* line 112, ../sass/_768up.scss */
       #likes .like h2 {
         color: white; }
-      /* line 114, ../sass/_768up.scss */
+      /* line 116, ../sass/_768up.scss */
       #likes .like video {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: auto; }
+        display: none; }
 
   /* WORK ----------------------------------------------------------------*/
-  /* line 127, ../sass/_768up.scss */
+  /* line 125, ../sass/_768up.scss */
   #work {
     position: relative;
     background: white;
     min-height: 650px;
     overflow: hidden; }
-    /* line 133, ../sass/_768up.scss */
+    /* line 131, ../sass/_768up.scss */
     #work .wrapper {
       position: relative;
       height: 100%;
       min-height: 650px; }
-    /* line 139, ../sass/_768up.scss */
+    /* line 137, ../sass/_768up.scss */
     #work .btn_prev.active, #work .btn_next.active {
       opacity: 1;
       cursor: pointer; }
-    /* line 144, ../sass/_768up.scss */
+    /* line 142, ../sass/_768up.scss */
     #work .btn_prev, #work .btn_next {
       opacity: .2;
       cursor: default; }
-    /* line 149, ../sass/_768up.scss */
+    /* line 147, ../sass/_768up.scss */
     #work .work_item {
       float: left;
       padding: 0 150px; }
-      /* line 153, ../sass/_768up.scss */
+      /* line 151, ../sass/_768up.scss */
       #work .work_item h3 {
         text-align: left;
         letter-spacing: .1em;
         line-height: 2.5em;
         color: black; }
-        /* line 159, ../sass/_768up.scss */
+        /* line 157, ../sass/_768up.scss */
         #work .work_item h3 span {
           display: block;
           font-size: 3em; }
-      /* line 165, ../sass/_768up.scss */
+      /* line 163, ../sass/_768up.scss */
       #work .work_item .visual {
         width: 100%;
         text-align: center; }
-      /* line 170, ../sass/_768up.scss */
+      /* line 168, ../sass/_768up.scss */
       #work .work_item .writeup {
         display: none; }
 
@@ -827,22 +825,35 @@ nav {
   body {
     background: blue; }
 
+  /* LIKES ----------------------------------------------------------------*/
+  /* line 33, ../sass/_1030up.scss */
+  #likes .like video {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto; }
+  /* line 42, ../sass/_1030up.scss */
+  #likes .like #video_1 {
+    display: none; }
+
   /* WORK ----------------------------------------------------------------*/
-  /* line 35, ../sass/_1030up.scss */
+  /* line 54, ../sass/_1030up.scss */
   #work .work_item .visual {
     float: left;
     width: 525px;
     height: 450px;
     margin: 0 50px 0 0; }
-  /* line 42, ../sass/_1030up.scss */
+  /* line 61, ../sass/_1030up.scss */
   #work .work_item .writeup {
     display: block;
     margin: 0 0 0 575px; }
-    /* line 46, ../sass/_1030up.scss */
+    /* line 65, ../sass/_1030up.scss */
     #work .work_item .writeup p, #work .work_item .writeup ul {
       font-size: 11px;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-    /* line 51, ../sass/_1030up.scss */
+    /* line 70, ../sass/_1030up.scss */
     #work .work_item .writeup ul {
       margin: 0;
       padding: 0 0 0 10px; } }
