@@ -492,7 +492,8 @@ probably best not to use it. I mean, were you going to anyway? */
   background: url(../images/backgrounds/border_bottom_white.png) center 0 repeat-x;
   display: block;
   width: 100%;
-  height: 23px; }
+  height: 23px;
+  z-index: 10; }
 
 /* Base / Mobile */
 /********************************************************************
