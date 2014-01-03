@@ -58,6 +58,8 @@ var sx,
 				sx.nextBtn.addClass('active');
 				sx.canAdvance = true;
 			}	
+
+			console.log($(window).width() / 2);			
 			
 			// Randomize both arrays in the same order - Major credit to Dineshkani (http://stackoverflow.com/users/1507442/dineshkani)
 			var arrayShuff = new Array();
