@@ -139,34 +139,38 @@ var sx,
 		},
 		prevPanel : function() {
 			if(sx.canRegress == true) {
-
-				sx.currPanel++;
+				sx.currPanel--;
 								
 				if($(sx.video[0]).is(":visible") == true) {
 					
 					$(sx.video[0]).fadeOut('slow');
 					
-					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.ogv';
+					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
 					$(sx.video[1]).fadeIn('slow');
 					sx.video[1].load();
 					sx.video[1].play();
 				} else {
 					$(sx.video[1]).fadeOut('slow');
-					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.ogv';
+					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
 						$(sx.video[0]).fadeIn('slow');
 						sx.video[0].load();
 						sx.video[0].play();
 				}
 				
 				
-				$('#likes h2 span').hide('slide', function() {
+				$('#likes h2 span').hide('slide', {direction: 'right'}, function() {
 					$('#likes h2 span').html(sx.verbage[sx.currPanel]);
-					$('#likes h2 span').show('slide',{direction: 'right'})
+					$('#likes h2 span').show('slide',{direction: 'left'})
 				});
-				
-				if(sx.currPanel >= sx.videos.length - 1) {
-					sx.nextBtn.removeClass('active');
+								
+				if(sx.currPanel == 0) {
+					sx.prevBtn.removeClass('active');
 					sx.canRegress = false;
+				}
+				
+				if(sx.currPanel == sx.videos.length - 2) {
+					sx.nextBtn.addClass('active');
+					sx.canAdvance = true;
 				}
 			}
 		},
@@ -174,18 +178,20 @@ var sx,
 			if(sx.canAdvance == true) {
 
 				sx.currPanel++;
-								
+				sx.canRegress = true;
+				sx.prevBtn.addClass('active');		
+						
 				if($(sx.video[0]).is(":visible") == true) {
 					
 					$(sx.video[0]).fadeOut('slow');
 					
-					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.ogv';
+					sx.video[1].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
 					$(sx.video[1]).fadeIn('slow');
 					sx.video[1].load();
 					sx.video[1].play();
 				} else {
 					$(sx.video[1]).fadeOut('slow');
-					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.ogv';
+					sx.video[0].src = 'assets/videos/'+sx.videos[sx.currPanel]+'.mp4';
 						$(sx.video[0]).fadeIn('slow');
 						sx.video[0].load();
 						sx.video[0].play();
